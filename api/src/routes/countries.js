@@ -6,7 +6,7 @@ const {route} = require('./getCountries');
 
 const getCountries = require('./getCountries');
 
-router.use('/setCountries', getCountries);
+// router.use('/setCountries', getCountries);
 
 router.get('/', async (req, res) => {
 	const name = req.query.name;
