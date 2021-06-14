@@ -8,7 +8,7 @@ export default function NavBar(props) {
 			<Link to='/home'>
 				<button>Home</button>
 			</Link>
-			<Link to='/activity'>
+			<Link to='/form'>
 				<button>Create an activity</button>
 			</Link>
 		</div>

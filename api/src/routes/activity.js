@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 			await country.addActivity([activityCreated]);
 		});
 	}
-	res.send('listo ppaa');
+	res.send(activityCreated);
 });
 
 module.exports = router;

@@ -1,11 +1,12 @@
 const initialState = {
 	countries: [],
 	countryDetail: {},
+	activities: [],
 };
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'GET_COUTRIES':
+		case 'GET_COUNTRIES':
 			return {
 				...state,
 				countries: action.payload,
@@ -19,7 +20,7 @@ const rootReducer = (state = initialState, action) => {
 		case 'POST_ACTIVITY':
 			return {
 				...state,
-				ok: action.payload,
+				activities: [...state.activities, action.payload],
 			};
 
 		default:

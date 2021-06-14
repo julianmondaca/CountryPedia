@@ -1,12 +1,105 @@
-import React from 'react';
-
+import {React, useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import filtro from '../../utils/filtros';
+import paginado from '../../utils/paginado';
 import NavBar from '../NavBar/index';
+import SearchBar from '../SearchBar';
+import CountryCard from '../CountryCard/index';
 
 export default function Home(props) {
+	const [filt, setFilt] = useState('all');
+	const [page, setPage] = useState([]);
+	const [filtered, setFiltered] = useState([]);
+	const [pagina, setPagina] = useState(0);
+	const countries = useSelector((store) => store.countries);
+	const activities = useSelector((store) => store.activities);
+
+	useEffect(() => {
+		if (filtered.length > 0) {
+			console.log('entre al paginado con :' + filtered);
+			setPage(paginado(filtered));
+		} else if (countries.length > 0) {
+			setPage(paginado(countries));
+		}
+	}, [countries, filt]);
+
+	useEffect(() => {
+		if (filt == 'all') {
+			setFiltered([]);
+		} else {
+			console.log('entre a filtro');
+			setFiltered(filtro(countries, filt));
+		}
+		console.log('esto es filtered: ' + filtered);
+	}, [filt]);
+
+	const handlePage = (e) => {
+		if (page[e]) {
+			setPagina(e);
+		}
+	};
+
+	const handleInputChange = (e) => {
+		setFilt(e.target.value);
+	};
+
 	return (
 		<div>
 			<NavBar />
-			<h1>CountryPedia</h1>
+			<div>
+				<SearchBar />
+				<div>
+					<label>search by continent or activity </label>
+					<select onChange={handleInputChange}>
+						<option value='all'>all</option>
+						<option value='Americas'>Americas</option>
+						<option value='Polar'>Polar</option>
+						<option value='Europe'>Europe</option>
+						<option value='Africa'>Africa</option>
+						<option value='Oceania'>Oceania</option>
+					</select>
+					<select onChange={handleInputChange}>
+						<option value='all'>all</option>
+						{activities &&
+							activities.map((act) => {
+								return <option value={act.name}>{act.name}</option>;
+							})}
+					</select>
+				</div>
+			</div>
+			<h2>Countries</h2>
+			{page.length > 0 ? (
+				page[pagina].map((e) => {
+					return (
+						<CountryCard
+							key={e.id}
+							name={e.name}
+							continent={e.continent}
+							id={e.id}
+							// img={e.flagImg}
+						/>
+					);
+				})
+			) : (
+				<div>search some countries</div>
+			)}
+			<div>
+				<button value={0} onClick={() => handlePage(0)}>
+					first
+				</button>
+				<button value={pagina - 1} onClick={() => handlePage(pagina - 1)}>
+					prev
+				</button>
+				<button value={pagina + 1} onClick={() => handlePage(pagina + 1)}>
+					next
+				</button>
+				<button
+					value={page.length - 1}
+					onClick={() => handlePage(page.length - 1)}
+				>
+					last
+				</button>
+			</div>
 		</div>
 	);
 }
