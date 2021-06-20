@@ -1,16 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import img from '../../media/img.jpg';
 
+import {LandingDiv} from './landingStyle';
 export default function LandingPage() {
 	return (
-		<div>
-			<h1>The Dog App</h1>
+		<LandingDiv>
+			<h1>CountryPedia</h1>
 			<Link to='/home'>
 				<button>Home</button>
 			</Link>
 			<div>
 				<h4>BY julian mondaca</h4>
 			</div>
-		</div>
+		</LandingDiv>
 	);
 }

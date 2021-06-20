@@ -5,6 +5,7 @@ import paginado from '../../utils/paginado';
 import NavBar from '../NavBar/index';
 import SearchBar from '../SearchBar';
 import CountryCard from '../CountryCard/index';
+import {CardContainer, HomeDiv} from './homeStyle';
 
 export default function Home(props) {
 	const [filt, setFilt] = useState('all');
@@ -44,13 +45,13 @@ export default function Home(props) {
 	};
 
 	return (
-		<div>
+		<HomeDiv>
 			<NavBar />
-			<div>
+			<div className='search'>
 				<SearchBar />
-				<div>
-					<label>search by continent or activity </label>
-					<select onChange={handleInputChange}>
+				<div className='filtro'>
+					<label>search by continent</label>
+					<select className='filtSelect' onChange={handleInputChange}>
 						<option value='all'>all</option>
 						<option value='Americas'>Americas</option>
 						<option value='Polar'>Polar</option>
@@ -58,7 +59,8 @@ export default function Home(props) {
 						<option value='Africa'>Africa</option>
 						<option value='Oceania'>Oceania</option>
 					</select>
-					<select onChange={handleInputChange}>
+					<label>search by activity</label>
+					<select className='filtSelect' onChange={handleInputChange}>
 						<option value='all'>all</option>
 						{activities &&
 							activities.map((act) => {
@@ -68,38 +70,49 @@ export default function Home(props) {
 				</div>
 			</div>
 			<h2>Countries</h2>
-			{page.length > 0 ? (
-				page[pagina].map((e) => {
-					return (
-						<CountryCard
-							key={e.id}
-							name={e.name}
-							continent={e.continent}
-							id={e.id}
-							// img={e.flagImg}
-						/>
-					);
-				})
-			) : (
-				<div>search some countries</div>
-			)}
-			<div>
-				<button value={0} onClick={() => handlePage(0)}>
+			<CardContainer>
+				{page.length > 0 ? (
+					page[pagina].map((e) => {
+						return (
+							<CountryCard
+								key={e.id}
+								name={e.name}
+								continent={e.continent}
+								id={e.id}
+								img={e.flagImg}
+							/>
+						);
+					})
+				) : (
+					<div>search some countries</div>
+				)}
+			</CardContainer>
+			<div className='homeButton'>
+				<button className='btn' value={0} onClick={() => handlePage(0)}>
 					first
 				</button>
-				<button value={pagina - 1} onClick={() => handlePage(pagina - 1)}>
+				<button
+					className='btn'
+					value={pagina - 1}
+					onClick={() => handlePage(pagina - 1)}
+				>
 					prev
 				</button>
-				<button value={pagina + 1} onClick={() => handlePage(pagina + 1)}>
+				<button
+					className='btn'
+					value={pagina + 1}
+					onClick={() => handlePage(pagina + 1)}
+				>
 					next
 				</button>
 				<button
+					className='btn'
 					value={page.length - 1}
 					onClick={() => handlePage(page.length - 1)}
 				>
 					last
 				</button>
 			</div>
-		</div>
+		</HomeDiv>
 	);
 }

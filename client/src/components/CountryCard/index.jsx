@@ -1,14 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {CardDiv} from './cardStyle';
 
 export default function CountryCard(props) {
 	return (
-		<div>
+		<CardDiv>
 			<Link to={`/countryDetail/${props.id}`}>
-				<img src={props.img} alt='image not found' />
+				<img className='styledImg' src={props.img} alt='image not found' />
 			</Link>
-			<h2>{props.name}</h2>
-			<h3>{props.continent}</h3>
-		</div>
+			<h2 className='styleTxt'>{props.name}</h2>
+			<h3 className='styleTxt'>{props.continent}</h3>
+		</CardDiv>
 	);
 }
