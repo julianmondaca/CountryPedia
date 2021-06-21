@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {countryDetail} from '../../actions';
 import NavBar from '../NavBar/index';
+import {DetailStyle} from './countryStyle';
 
 export default function CountryDetail(props) {
 	const dispatch = useDispatch();
@@ -14,9 +15,9 @@ export default function CountryDetail(props) {
 	}, []);
 
 	return (
-		<div>
+		<DetailStyle>
 			<NavBar />
-			<div>
+			<div className='infoContainer'>
 				<h2>{detail.name}</h2>
 				<img src={detail.flagImg} alt='image not found' />
 				<div>
@@ -49,10 +50,10 @@ export default function CountryDetail(props) {
 						);
 					})
 				) : (
-					<div>
+					<div className='alternative'>
 						<h3>Create some activities</h3>
 						<Link to='/form'>
-							<button>CREATE</button>
+							<button className='altButton'>CREATE</button>
 						</Link>
 					</div>
 				)}
@@ -60,6 +61,6 @@ export default function CountryDetail(props) {
 					<h4>{detail.id}</h4>
 				</div>
 			</div>
-		</div>
+		</DetailStyle>
 	);
 }

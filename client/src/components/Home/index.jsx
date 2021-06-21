@@ -1,19 +1,25 @@
 import {React, useState, useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import filtro from '../../utils/filtros';
 import paginado from '../../utils/paginado';
 import NavBar from '../NavBar/index';
 import SearchBar from '../SearchBar';
 import CountryCard from '../CountryCard/index';
 import {CardContainer, HomeDiv} from './homeStyle';
+import {getCountries} from '../../actions';
 
 export default function Home(props) {
+	const dispatch = useDispatch();
 	const [filt, setFilt] = useState('all');
 	const [page, setPage] = useState([]);
 	const [filtered, setFiltered] = useState([]);
 	const [pagina, setPagina] = useState(0);
 	const countries = useSelector((store) => store.countries);
 	const activities = useSelector((store) => store.activities);
+
+	useEffect(() => {
+		dispatch(getCountries('', 'ASC', 'all'));
+	}, []);
 
 	useEffect(() => {
 		if (filtered.length > 0) {

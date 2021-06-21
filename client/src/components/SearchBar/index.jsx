@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {getCountries} from '../../actions';
+import {SearchStyle} from './barStyle';
 
 export default function SearchBar(props) {
 	const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function SearchBar(props) {
 		dispatch(getCountries(input.name, input.order, input.aux));
 	};
 	return (
-		<div>
+		<SearchStyle>
 			<form onSubmit={handleSubmit}>
 				<div>
 					<label>search a country</label>
@@ -45,8 +46,10 @@ export default function SearchBar(props) {
 						<option value='population'>population</option>
 					</select>
 				</div>
-				<button type='submit'>SEARCH</button>
+				<button className='searcButton' type='submit'>
+					SEARCH
+				</button>
 			</form>
-		</div>
+		</SearchStyle>
 	);
 }

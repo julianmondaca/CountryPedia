@@ -17,8 +17,14 @@ export const CardDiv = styled.div`
 		border-radius: 15px;
 	}
 	.styleTxt {
-		border: solid green;
+		/* border: solid green; */
 		margin: 10px 0;
 		font-size: 1.2rem;
+	}
+
+	&:hover {
+		background-color: #aea7c4;
+		transform: scale3d(-1);
+		transition: all 1s;
 	}
 `;

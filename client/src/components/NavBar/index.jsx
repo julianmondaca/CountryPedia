@@ -8,10 +8,10 @@ export default function NavBar(props) {
 			<h1>CountryPedia</h1>
 			<div className='buttons'>
 				<Link to='/home'>
-					<button>Home</button>
+					<button className='btnNav'>Home</button>
 				</Link>
 				<Link to='/form'>
-					<button>Create an activity</button>
+					<button className='btnNav'>Create an activity</button>
 				</Link>
 			</div>
 		</StyledNavBar>
