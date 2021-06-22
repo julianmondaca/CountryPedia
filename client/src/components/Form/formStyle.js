@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 export const FormStyle = styled.div`
-	border: solid green;
+	/* border: solid green; */
 	height: 45.2rem;
 	background-color: rgb(110, 33, 66);
 
+
+	.error{
+		border: solid red;
+	}
 	.formDiv {
 		background-color: rgb(148, 56, 85);
 		border: 5px double rgba(164, 19, 12, 0.18);
@@ -38,4 +42,11 @@ export const FormStyle = styled.div`
 			color: white;
 		}
 	}
+	.butonFalse {
+		margin-top: 30px;
+		border-radius: 15px;
+		padding: 10px 0 10px 5px;
+		background: rgb(225, 99, 99);
+		cursor: not-allowed;
+		}
 `;

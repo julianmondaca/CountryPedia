@@ -13,6 +13,9 @@
 		animation: App-logo-spin infinite 20s linear;
 	}
 }
+body {
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Planisferio.png');
+}
 
 .App-header {
 	background-color: #282c34;

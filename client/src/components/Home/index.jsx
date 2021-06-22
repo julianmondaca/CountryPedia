@@ -34,10 +34,8 @@ export default function Home(props) {
 		if (filt == 'all') {
 			setFiltered([]);
 		} else {
-			console.log('entre a filtro');
 			setFiltered(filtro(countries, filt));
 		}
-		console.log('esto es filtered: ' + filtered);
 	}, [filt]);
 
 	const handlePage = (e) => {

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
 	/* border: solid brown; */
+	
+	width: 1303px;
 	display: flex;
 	flex-flow: row wrap;
 	margin: 20px;

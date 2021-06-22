@@ -8,6 +8,7 @@ export const CardDiv = styled.div`
 	justify-content: center;
 	margin: 15px 10px;
 	width: 200px;
+	height: 284px;
 
 	.styledImg {
 		margin: 10px 20px;

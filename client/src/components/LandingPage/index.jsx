@@ -7,10 +7,10 @@ export default function LandingPage() {
 	return (
 		<LandingDiv>
 			<h1>CountryPedia</h1>
-			<Link to='/home'>
-				<button>Home</button>
+			<Link to='/home' className='link'>
+				<button className='landingBtn'>Home</button>
 			</Link>
-			<div>
+			<div className='nameDiv'>
 				<h4>BY julian mondaca</h4>
 			</div>
 		</LandingDiv>
