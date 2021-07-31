@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from '../../media/img.jpg';
+
 
 export const LandingDiv = styled.div`
 	background-image: src('../../media/img.jpg');

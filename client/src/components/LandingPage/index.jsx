@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import img from '../../media/img.jpg';
+
 
 import {LandingDiv} from './landingStyle';
 export default function LandingPage() {

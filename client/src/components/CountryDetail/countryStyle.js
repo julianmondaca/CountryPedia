@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const DetailStyle = styled.div`
-	border: solid green;
-	background-color: rgb(110, 33, 66);
+	border: solid rgb(255, 255, 255);
+	border-width: 1px;
+	background-color: rgb(255, 255, 255);
 
 	img {
 		width: 450px;
@@ -10,7 +11,7 @@ export const DetailStyle = styled.div`
 	}
 
 	.infoContainer {
-		background-color: rgb(148, 56, 85);
+		background-color: rgb(180, 180, 180);
 		border-radius: 15px;
 		border: 5px double rgba(164, 19, 12, 0.18);
 		margin: 50px;
@@ -28,7 +29,7 @@ export const DetailStyle = styled.div`
 		border: 0px;
 		margin-left: 15px;
 		font-size: 15px;
-		background-color: rgb(148, 56, 85);
+		background-color: rgb(180, 180, 180);
 
 		&:hover {
 			padding: 10px;

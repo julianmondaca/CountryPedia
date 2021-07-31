@@ -15,6 +15,7 @@ export default function Home(props) {
 	const [filtered, setFiltered] = useState([]);
 	const [pagina, setPagina] = useState(0);
 	const countries = useSelector((store) => store.countries);
+
 	const activities = useSelector((store) => store.activities);
 
 	useEffect(() => {
@@ -23,7 +24,6 @@ export default function Home(props) {
 
 	useEffect(() => {
 		if (filtered.length > 0) {
-			console.log('entre al paginado con :' + filtered);
 			setPage(paginado(filtered));
 		} else if (countries.length > 0) {
 			setPage(paginado(countries));
@@ -73,7 +73,7 @@ export default function Home(props) {
 					</select>
 				</div>
 			</div>
-			<h2>Countries</h2>
+			<h2 className='countriesH2'>Countries</h2>
 			<CardContainer>
 				{page.length > 0 ? (
 					page[pagina].map((e) => {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledNavBar = styled.div`
-	background-color: rgb(225, 99, 99);
+	background-color: rgb(180, 180, 180);
 
 	display: flex;
 	align-items: center;
@@ -16,7 +16,7 @@ export const StyledNavBar = styled.div`
 		border: 0px;
 		margin-left: 15px;
 		font-size: 15px;
-		background-color: rgb(225, 99, 99);
+		background-color: rgb(180, 180, 180);
 
 		&:hover {
 			padding: 10px;

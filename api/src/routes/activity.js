@@ -12,11 +12,13 @@ router.post('/', async (req, res) => {
 		season: act.season,
 	});
 
+	console.log('esta es la activity ' + activityCreated.name);
+
 	if (act.countries) {
-		console.log('estoy en add country');
 		let aux = act.countries.split(',');
 		aux.map(async (e) => {
 			let country = await Country.findByPk(e);
+			console.log('este es el pais ' + country.name);
 			await country.addActivity([activityCreated]);
 		});
 	}

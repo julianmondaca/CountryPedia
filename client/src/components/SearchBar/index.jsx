@@ -1,5 +1,4 @@
 import {React, useState} from 'react';
-import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {getCountries} from '../../actions';
 import {SearchStyle} from './barStyle';
@@ -25,7 +24,7 @@ export default function SearchBar(props) {
 		<SearchStyle>
 			<form onSubmit={handleSubmit}>
 				<div>
-					<label>search a country</label>
+					<label>Search a country</label>
 					<input
 						name='name'
 						placeholder='country name'
@@ -33,16 +32,16 @@ export default function SearchBar(props) {
 					/>
 				</div>
 				<div>
-					<label>order alphabetically</label>
+					<label>Order alphabetically</label>
 					<select name='order' onChange={handleInputChange}>
-						<option value='ASC'>A-Z</option>
-						<option value='DESC'>Z-A</option>
+						<option value='ASC'>asc</option>
+						<option value='DESC'>desc</option>
 					</select>
 				</div>
 				<div>
-					<label>search by: </label>
+					<label>Search by: </label>
 					<select name='aux' onChange={handleInputChange}>
-						<option value='all'>all</option>
+						<option value='all'>alphabetically</option>
 						<option value='population'>population</option>
 					</select>
 				</div>

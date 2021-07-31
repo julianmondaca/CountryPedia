@@ -30,6 +30,9 @@ export default function CountryDetail(props) {
 					<h3>Subregion: {detail.subregion}</h3>
 				</div>
 				<div>
+					<h3>Population: {detail.population}</h3>
+				</div>
+				<div>
 					<h2>Activities: </h2>
 				</div>
 				{detail.activities && detail.activities.length > 0 ? (

@@ -2,11 +2,6 @@ const {Router} = require('express');
 const {Op} = require('sequelize');
 const router = Router();
 const {Country, Activity} = require('../db');
-const {route} = require('./getCountries');
-
-const getCountries = require('./getCountries');
-
-// router.use('/setCountries', getCountries);
 
 router.get('/', async (req, res) => {
 	const name = req.query.name;

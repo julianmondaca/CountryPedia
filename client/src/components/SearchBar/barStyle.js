@@ -9,7 +9,7 @@ export const SearchStyle = styled.div`
 		border-radius: 15px;
 		&:hover {
 			color: white;
-			background-color: rgb(148, 56, 85);
+			background-color: rgb(180, 180, 180);
 		}
 	}
 `;
